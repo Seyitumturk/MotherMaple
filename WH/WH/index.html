@@ -24,12 +24,10 @@
 
             
             scene = new THREE.Scene();
-            scene.background = new THREE.Color('white');
+            scene.background = new THREE.Color('black');
 
-            camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 0.01 , 000);
+            camera = new THREE.PerspectiveCamera(5, window.innerWidth/window.innerHeight, 0.01 , 000);
 
-            camera.rotation.y = 45/180*Math.PI;
-            camera.rotation.x =0;
        
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -41,12 +39,12 @@
             var light = new THREE.HemisphereLight(0xffffff,0x000000, 10);
             
             scene.add(light);
-            camera.position.set(0, 0, 0);
+            camera.position.set(0, 0, 1);
 
 
             let loader = new THREE.GLTFLoader();
 
-            loader.load('scene.gltf', function(gltf){
+            loader.load('poly.glb', function(gltf){
 
                 car = gltf.scene.children[0];
                 car.scale.set(0.5,0.5,0.5);
